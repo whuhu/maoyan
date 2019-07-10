@@ -21,6 +21,7 @@ def next_page(html):
         + '.*?integer">(.*?)</i>.*?fraction">(.*?)</i>.*?</dd>', re.S)
     contents = re.findall(pattern, html)
     for content in contents:
+        #use iterator function
         yield {
             'index': content[0],
             'image': content[1],
