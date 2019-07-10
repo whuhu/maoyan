@@ -33,7 +33,7 @@ def next_page(html):
 
 def to_file(content):
     '''写入文件'''
-    with open('result.txt', 'a', encoding='utf-8') as f:
+    with open('maoyan.txt', 'a', encoding='utf-8') as f:
         #使用JSON库的dumps方法实现字典的序列化，ensure_ascii为False以输出中文
         f.write(json.dumps(content, ensure_ascii=False) + '\n')
 
