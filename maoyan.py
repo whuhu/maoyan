@@ -1,22 +1,18 @@
 import requests
 import re
-import time
 import json
+import time
 
-
-def get_page(url):
+def page(url):
     '''使用response函数抓取网页内容'''
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1'
     }#模拟firefox 4.0.1 浏览器访问网页
     response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        return response.text
-    else:
-        return None
+    return response.text
 
 
-def parse_page(html):
+def next_page(html):
     '''使用正则表达式作为解析工具'''
     #创建正则表达式对象，优化代码
     pattern = re.compile(
@@ -45,8 +41,8 @@ def to_file(content):
 def main(offset):
     #爬取前100(10面)的网页
     url = 'http://maoyan.com/board/4?offset=' + str(offset)
-    html = get_page(url)
-    for content in parse_page(html):
+    html = page(url)
+    for content in next_page(html):
         print(content)
         to_file(content)
 
