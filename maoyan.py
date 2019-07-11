@@ -4,7 +4,7 @@ import json
 import time
 
 def page(url):
-    '''使用response函数抓取网页内容'''
+    '''使用resquests函数抓取网页内容'''
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1'
     }#模拟firefox 4.0.1 浏览器访问网页
